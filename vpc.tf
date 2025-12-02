@@ -78,7 +78,7 @@ resource "aws_route_table_association" "public1_two" {
 }
 resource "aws_route_table_association" "public2_two" {
   route_table_id = aws_subnet.public2.id
-  subnet_id = aws_subnet_Public2.id
+  subnet_id = aws_subnet.Public2.id
 }
 
 #creating eip to attach to nat gateway so nat can access internet for updates
