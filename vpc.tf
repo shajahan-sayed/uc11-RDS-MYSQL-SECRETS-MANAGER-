@@ -2,7 +2,7 @@ resource "aws_vpc" "two_tier" {
   cidr = var.vpc_cidr
 
   tags = {
-    name = "two-tier"
+    Name = "two-tier"
   }
 }
 
@@ -12,7 +12,7 @@ resource "aws_subnet" "public1" {
   availability_zone = "var.availability_zone1"
 
   tags = {
-    name = "public1"
+    Name = "public1"
   }
 }
 
@@ -22,7 +22,7 @@ resource "aws_subnet" "public2" {
   availability_zone = "var.availability_zone2"
 
   tags = {
-    name = "public2"
+    Name = "public2"
   }
 }
 
@@ -32,7 +32,7 @@ resource "aws_subnet" "private1" {
   availability_zone = "var.availability_zone1"
 
   tags = {
-    name = "private1"
+    Name = "private1"
   }
 }
 
@@ -42,7 +42,7 @@ resource "aws_subnet" "private2" {
   availability_zone = "var.availability_zone2"
 
   tags = {
-    name = "private2"
+    Name = "private2"
   }
 }
 
@@ -51,7 +51,7 @@ resource "aws_internet_gateway" "igw_two" {
   vpc_id = aws_vpc_id.two_tier.id
 
   tags = {
-    name = "igw_two"
+    Name = "igw_two"
   }
 }
 
@@ -60,7 +60,7 @@ resource "aws_route_table" "route_two" {
    vpc_id = aws_vpc.two_tier.id
 
    tags = { 
-      name = "route_two"
+      Name = "route_two"
     }
   }
 #creating route 
@@ -94,7 +94,7 @@ resource "aws_route_table_association" "public2_two" {
     depends_on = [aws_internet_gateway.igw] # Ensures IGW is ready before NAT
 
     tags = {
-      name = "nat_two"
+      Name = "nat_two"
     }
   }
 #creating routetable for private subnet
@@ -102,7 +102,7 @@ resource "aws_route_table_association" "public2_two" {
     vpc_id = aws_vpc_id.two_tier.id
 
     tags = {
-      name = "private_route"
+      Name = "private_route"
     }
   }
 
