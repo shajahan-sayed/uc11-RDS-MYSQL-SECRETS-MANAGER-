@@ -9,7 +9,7 @@ resource "aws_vpc" "two_tier" {
 resource "aws_subnet" "public1" {
   vpc_id = aws_vpc.two_tier.id
   cidr = var.public1_cidr
-  availability_zone = "var.availability_zone1"
+  availability_zone = "var.availability_zone11"
 
   tags = {
     Name = "public1"
@@ -19,7 +19,7 @@ resource "aws_subnet" "public1" {
 resource "aws_subnet" "public2" {
   vpc_id = aws_vpc.two_tier.id
   cidr = var.public2_cidr
-  availability_zone = "var.availability_zone2"
+  availability_zone = "var.availability_zone22"
 
   tags = {
     Name = "public2"
@@ -29,7 +29,7 @@ resource "aws_subnet" "public2" {
 resource "aws_subnet" "private1" {
   vpc_id = aws_vpc.two_tier.id
   cidr = var.private1_cidr
-  availability_zone = "var.availability_zone1"
+  availability_zone = "var.availability_zone11"
 
   tags = {
     Name = "private1"
@@ -39,7 +39,7 @@ resource "aws_subnet" "private1" {
 resource "aws_subnet" "private2" {
   vpc_id = aws_vpc.two_tier.id
   cidr = var.private2_cidr
-  availability_zone = "var.availability_zone2"
+  availability_zone = "var.availability_zone22"
 
   tags = {
     Name = "private2"
