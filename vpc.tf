@@ -98,7 +98,7 @@ resource "aws_route_table_association" "public2_two" {
     }
   }
 #creating routetable for private subnet
-  resource "aws_route_table" private_route" {
+  resource "aws_route_table" "private_route" {
     vpc_id = aws_vpc_id.two_tier.id
 
     tags = {
