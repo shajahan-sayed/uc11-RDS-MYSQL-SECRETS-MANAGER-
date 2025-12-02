@@ -65,7 +65,7 @@ resource "aws_route_table" "route_two" {
   }
 #creating route 
 resource "aws_route" "two_route" {
-   vpc_id = aws_vpc.two_tier.id
+   route_table_id = aws_route_table.route_two.id
    destination_cidr_block = "0.0.0.0/0"
    gateway_id = aws_internet_gateway.igw_two.id
 }
@@ -73,12 +73,12 @@ resource "aws_route" "two_route" {
 #creating route table association 
 resource "aws_route_table_association" "public1_two" {
   route_table_id = aws_subnet.public1.id
-  gateway_id = aws_internet_gateway_id.igw_two.id
+  subnet_id = aws_subnet.public1.id
 
 }
 resource "aws_route_table_association" "public2_two" {
   route_table_id = aws_subnet.public2.id
-  gateway_id  = aws_internet_gateway.igw_two.id
+  subnet_id = aws_subnet_Public2.id
 }
 
 #creating eip to attach to nat gateway so nat can access internet for updates
