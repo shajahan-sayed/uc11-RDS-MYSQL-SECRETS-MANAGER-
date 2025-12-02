@@ -10,6 +10,8 @@ resource "aws_subnet" "public1" {
   vpc_id = aws_vpc.two_tier.id
   cidr_block = var.public1_cidr
   availability_zone = var.availability_zone11
+  map_public_ip_on_launch = true
+
 
   tags = {
     Name = "public1"
@@ -20,6 +22,8 @@ resource "aws_subnet" "public2" {
   vpc_id = aws_vpc.two_tier.id
   cidr_block = var.public2_cidr
   availability_zone = var.availability_zone22
+  map_public_ip_on_launch = true
+
 
   tags = {
     Name = "public2"
